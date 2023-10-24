@@ -21,7 +21,8 @@ function ViewPoints() {
       .catch((error) => {
         console.error('Error fetching user points:', error);
       });
-  }, );
+        // eslint-disable-next-line
+  }, []);
 
   
 

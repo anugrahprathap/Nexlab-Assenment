@@ -49,7 +49,8 @@ function UserHome() {
       .catch((error) => {
         console.error('Error fetching apps:', error);
       });
-  }, );
+        // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="" style={containerStyle}>
