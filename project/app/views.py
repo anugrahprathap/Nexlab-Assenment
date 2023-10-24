@@ -2,9 +2,10 @@ import requests
 from django.http import JsonResponse
 import json
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,permission_classes
 from .models import App
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import AppSerializer
 
@@ -38,6 +39,7 @@ def get_app_icon(request):
 from django.http import JsonResponse
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def add_app_view(request):
     if request.method == 'POST':
        
@@ -54,6 +56,7 @@ def add_app_view(request):
     return Response({'error': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_all_apps(request):
     if request.method == 'GET':
         apps = App.objects.all()
@@ -115,6 +118,7 @@ def user_login(request):
     return Response({'error': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_app_by_id(request, app_id):
     try:
         print(app_id)
@@ -130,6 +134,7 @@ from .models import UploadedImage
 from .serializers import UploadedImageSerializerMain
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def upload_image(request):
     if request.method == 'POST':
         serializer = UploadedImageSerializerMain(data=request.data, context={'request': request})
@@ -149,6 +154,7 @@ from django.db.models import Q
 
     
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def check_task_completion(request, app_id):
     # Check if the user is authenticated
     if request.user.is_authenticated:
@@ -202,7 +208,7 @@ from .models import UploadedImage, App
 from .serializers import UploadedImageSerializer
 
 @api_view(['POST'])
-  # Restrict this view to admin users
+@permission_classes([IsAuthenticated])
 def verify_image(request, image_id, status):
     try:
         # Get the uploaded image by ID
@@ -257,6 +263,39 @@ def get_user_points(request):
 
 
 from django.contrib.auth import logout as django_logout
+
+
+
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from .serializers import UserProfileSerializer
+from .models import UserProfile
+from .models import UploadedImage
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_user_info(request):
+    user = request.user  # The authenticated user
+    try:
+        # Retrieve the user's profile and fetch their points
+        user_profile = user.userprofile  # Assuming you have a UserProfile model related to the User model
+        user_points = user_profile.points
+
+        # Count the number of tasks completed by the user
+        num_completed_tasks = UploadedImage.objects.filter(user=user, is_accepted='A').count()
+
+        # Serialize the user's information
+        serializer = UserProfileSerializer(user_profile)
+        data = serializer.data
+        data['user_name'] = user.username
+        data['user_points'] = user_points
+        data['num_completed_tasks'] = num_completed_tasks
+        
+        return Response(data, status=status.HTTP_200_OK)
+    except UserProfile.DoesNotExist:
+        return Response({'error': 'User profile not found'}, status=status.HTTP_404_NOT_FOUND)
+    
 
 @api_view(['POST'])
 def LogoutView(request):

@@ -63,7 +63,7 @@ function SideBar(){
           <a href="/home" className="btn btn-primary col-md-6 mb-3">
             <FontAwesomeIcon className='mx-1' style={{ ...iconStyle, color: 'white' }} icon={faHome} />Home</a>
             <br />
-            <a href="/home" className="btn btn-outline-primary col-md-6 mb-3">
+            <a href="/profile" className="btn btn-outline-primary col-md-6 mb-3">
               
             <FontAwesomeIcon className='mx-1' style={{ ...iconStyle, color: '' }} icon={faUser} />Profile</a>
         
@@ -85,7 +85,7 @@ function SideBar(){
         <br />
         <button className="btn btn-outline-primary col-md-6 mb-3">
               
-            <FontAwesomeIcon onClick={{}} className=' mx-1' style={{ ...iconStyle, color: '' }} icon={faRightToBracket} />Logout</button>
+            <FontAwesomeIcon  className=' mx-1' style={{ ...iconStyle, color: '' }} icon={faRightToBracket} />Logout</button>
         
         <br />
       

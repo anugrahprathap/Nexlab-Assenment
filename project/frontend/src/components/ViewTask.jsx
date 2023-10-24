@@ -65,7 +65,10 @@ function ViewTask() {
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://127.0.0.1:8000/get_all_apps/')
+    Axios.get('http://127.0.0.1:8000/get_all_apps/',{headers: {
+      'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`, 
+    },})
       .then((response) => {
         console.log(response.data)
         setApps(response.data);

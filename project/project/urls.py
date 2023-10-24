@@ -33,6 +33,7 @@ urlpatterns = [
     path('view-images/', views.admin_view_images, name='admin_view_images'),
     path('verify-image/<int:image_id>/<str:status>/', views.verify_image, name='verify_image'),
     path('get-user-points/', views.get_user_points, name='get_user_points'),
+     path('get-user-info/', views.get_user_info, name='get_user_info'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

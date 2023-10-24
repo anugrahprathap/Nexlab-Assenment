@@ -10,6 +10,7 @@ import ViewTask from './components/ViewTask';
 import TaskDetail from './components/TaskDetail';
 import Verify from './components/Verify';
 import ViewPoints from './components/ViewPoints';
+import Profile from './components/Profiie';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/verify" element={<Verify/>} />
           <Route path="/task/:taskId" element={<TaskDetail/>} />
           <Route path="/points" element={<ViewPoints/>} />
+          <Route path="/profile" element={<Profile/>} />
 
       </Routes>
 
