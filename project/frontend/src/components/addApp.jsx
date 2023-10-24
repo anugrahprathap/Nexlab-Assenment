@@ -105,7 +105,8 @@ function AddApp() {
     if (appLink) {
       fetchAppIcon();
     }
-  }, [appLink,fetchAppIcon]);
+     // eslint-disable-next-line
+  }, [appLink]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
