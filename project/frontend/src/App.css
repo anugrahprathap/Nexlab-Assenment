@@ -73,7 +73,32 @@ nav a:hover {
   padding: 20px;
 
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 
 }
 
+.main-input{
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.main-input > div {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+ 
+
+.bg-rgb-139-148-148 {
+  background-color: rgb(139, 148, 148);
+}
+
+.custom-navbar {
+  background-color: rgb(193, 197, 197);
+}
