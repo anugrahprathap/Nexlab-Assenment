@@ -1,5 +1,5 @@
 # build_files.sh
 pip install -r requirements.txt
-pip install --no-binary :all: pysqlite
+pip install db-sqlite3
 
 python3.9 manage.py collectstatic
