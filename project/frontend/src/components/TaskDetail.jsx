@@ -61,6 +61,7 @@ function TaskDetail() {
       .catch((error) => {
         console.error('Error fetching task:', error);
       });
+       // eslint-disable-next-line
   }, [taskId]);
 
   const onDrop = useCallback((acceptedFiles) => {

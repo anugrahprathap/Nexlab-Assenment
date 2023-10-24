@@ -84,7 +84,7 @@ function AddApp() {
   const fetchAppIcon = async () => {
     try {
         
-      const apiUrl = `http://127.0.0.1:8000/getAppIcon/?url=${url}/`;
+      const apiUrl = `${serverAddress}/getAppIcon/?url=${url}/`;
       const response = await Axios.get(apiUrl);
   
       if (response.status === 200) {
