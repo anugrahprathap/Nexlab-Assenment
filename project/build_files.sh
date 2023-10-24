@@ -1,5 +1,7 @@
 # build_files.sh
 pip install -r requirements.txt
-sudo apt-get install libsqlite3-dev
+echo '*'*100
+sudo yum install sqlite sqlite-devel
+
 
 python3.9 manage.py collectstatic
