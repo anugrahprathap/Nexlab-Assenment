@@ -74,7 +74,7 @@ function TaskDetail() {
     if (acceptedFiles.length === 1) {
       setUploadedImage(acceptedFiles[0]);
     }
-  }, );
+  }, [setUploadedImage]);
 
   const handleSubmit = async () => {
     console.log('button');

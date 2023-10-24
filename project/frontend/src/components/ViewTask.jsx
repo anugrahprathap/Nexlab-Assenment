@@ -96,7 +96,7 @@ function ViewTask() {
         <div key={index} style={{ backgroundColor: '#dfe1e6',border: '2px solid #a6a8ad',display:'flex',flexDirection:'row',justifyContent:'space-between', padding: '30px', margin: '5px' }}>
           
           
-          <img style={iconStyleLogo} src= {app.logo}/>
+          <img style={iconStyleLogo} src= {app.logo}  alt='logo'/>
           
           <div className='mx-3' style={{backgroundColor:''}}>
           <b  className="font-size-36 font-family-arial" style={{fontSize:'25px',fontFamily:'Arial, Helvetica, sans-serif'}}>{app.app_name}</b> <br />

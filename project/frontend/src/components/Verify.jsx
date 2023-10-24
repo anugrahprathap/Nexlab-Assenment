@@ -100,7 +100,7 @@ function Verify() {
                     
                 <img style={imageStyle}
                     src={`${serverAddress}${image.image}`} // Replace with the actual image URL field from your data
-                    alt='Image'
+                    alt='verify'
                     onClick={() => openImageViewer(`${serverAddress}${image.image}`)}
                 />
                 <p>Username: {image.user.username}</p>
