@@ -59,8 +59,8 @@ function HomePage() {
         <div className="col-md-9" style={mainContentStyle}>
             
           <div className="main-section">
-            <h2>Home Page Content</h2>
-            <p>Welcome to our home page. You can customize this section with your content.</p>
+            <h2>App Home  </h2>
+            <p>Welcome to our App</p>
           </div>
         </div>
       </div>
