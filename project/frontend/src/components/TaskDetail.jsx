@@ -54,9 +54,14 @@ function TaskDetail() {
   };
 
   useEffect(() => {
-    Axios.get(`${serverAddress}/get_app/${taskId}/`)
+    const headers = {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${localStorage.getItem('token')}`, // Replace with your authentication method
+    };
+    Axios.get(`${serverAddress}/get_app/${taskId}/`,{headers})
       .then((response) => {
         setTask(response.data);
+        console.log(response.data)
       })
       .catch((error) => {
         console.error('Error fetching task:', error);
@@ -116,7 +121,7 @@ function TaskDetail() {
                 flexWrap: 'wrap',
               }}
             >
-              <img style={iconStyle} src={task.logo} alt="" />
+              <img style={iconStyle} src={task.logo} alt="task-logo" />
               <div className="mt-1 mx-3">
                 <h2>{task.app_name}</h2>
                 <span>

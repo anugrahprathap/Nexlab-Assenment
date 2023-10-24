@@ -99,9 +99,9 @@ function Verify() {
                 <div key={index} className="image-item m-3 p-3 " style={imageContent}>
                     
                 <img style={imageStyle}
-                    src={`http://127.0.0.1:8000${image.image}`} // Replace with the actual image URL field from your data
-                    alt={`Image ${index}`}
-                    onClick={() => openImageViewer(`http://127.0.0.1:8000${image.image}`)}
+                    src={`${serverAddress}${image.image}`} // Replace with the actual image URL field from your data
+                    alt='Image'
+                    onClick={() => openImageViewer(`${serverAddress}${image.image}`)}
                 />
                 <p>Username: {image.user.username}</p>
                 <p>App Name: {image.app.app_name}</p> 

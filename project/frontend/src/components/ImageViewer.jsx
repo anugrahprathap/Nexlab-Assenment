@@ -11,7 +11,7 @@ const ImageViewer = ({ image, onClose }) => {
     <div className="modal">
       <div className="modal-content">
         Hello
-        <img style={imageStyle} src={image}  />
+        <img style={imageStyle} src={image} alt="Full-size Image" />
         <button className='btn btn-primary' onClick={onClose}>Close</button>
       </div>
     </div>

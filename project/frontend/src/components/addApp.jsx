@@ -9,22 +9,22 @@ function AddApp() {
   const config = require('./config.json');
   const serverAddress = config.serverAddress;
 
-  const [appCategories, setAppCategories] = useState([
+  const appCategories = [
     "Communication",
     "Social Media",
     "Entertainment",
     "Productivity",
     // Add more categories here
-  ]);
-  setAppCategories('')
-  const [subCategories, setSubCategories] = useState({
+  ];
+  
+  const subCategories = {
     "Communication": ["Messaging", "Email", "Video Calls", "Voice Calls"],
     "Social Media": ["Networking", "Photo Sharing", "Video Sharing", "Microblogging"],
     "Entertainment": ["Music", "Video Streaming", "Gaming", "Books", "Movies"],
     "Productivity": ["Task Management", "Note Taking", "Calendar", "Document Editing"],
     // Define subcategories for other categories
-  });
-  setSubCategories('')
+  }
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
 
@@ -144,7 +144,7 @@ function AddApp() {
               <div className="text-center mb-4">
                 {appIcon ? (
                   
-                 <img src={appIcon}  style={{ ...iconStyle, color: 'rgb(193, 197, 197)' }}/>
+                 <img src={appIcon}  style={{ ...iconStyle, color: 'rgb(193, 197, 197)' }} alt="App Icon"/>
                 ) : (
                   <FontAwesomeIcon style={{ ...iconContainerStyle, color: 'rgb(193, 197, 197)' }} icon={faImage} />
                 )}
