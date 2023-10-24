@@ -21,14 +21,6 @@ function ViewTask() {
 
 
   
-    const sidebarStyle = {
-        backgroundColor: '#dfe1e6',
-        width: '20%',
-        padding: '10px',
-        paddingTop: '80px',
-        paddingLeft: '20px',
-      };
-    
       const mainContentStyle = {
         backgroundColor: 'white',
         width: '80%',

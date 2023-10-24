@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser,faHome ,faRightToBracket, faDatabase} from '@fortawesome/free-solid-svg-icons';
@@ -18,24 +18,7 @@ function SideBar(){
         paddingLeft: '20px',
       };
     
-      const mainContentStyle = {
-        backgroundColor: 'white',
-        width: '80%',
-        padding: '20px',
-        marginTop: '80px',
-      };
     
-      const containerStyle = {
-        height: '100%', // Set the container height to 100%
-        width: '100%',
-      };
-    
-      const flexContainerStyle = {
-        display: 'flex',
-        backgroundColor: '#dfe1e6',
-        height: '100vh', // Set the flex container height to 100%
-        width: '100vw',
-      };
     
     
       const iconStyle = {
@@ -52,7 +35,6 @@ function SideBar(){
       
       
     
-      const [apps, setApps] = useState([]);
     
      
     return (

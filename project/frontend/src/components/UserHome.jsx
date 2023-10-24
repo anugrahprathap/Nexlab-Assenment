@@ -42,7 +42,9 @@ function UserHome() {
   useEffect(() => {
     Axios.get(`${serverAddress}/get_all_apps/`)
       .then((response) => {
+
         setApps(response.data);
+        console.log(apps)
       })
       .catch((error) => {
         console.error('Error fetching apps:', error);
