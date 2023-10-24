@@ -24,7 +24,7 @@ Regular users can engage with the platform to earn points, monitor their progres
 - [x] Users can upload a screenshot as proof of task completion.
 
 
-
+[Access the App](https://inspiring-bonbon-836aef.netlify.app)
 
 ## Tech Stack
 
