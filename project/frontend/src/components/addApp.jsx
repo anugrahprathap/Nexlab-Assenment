@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage,faHome } from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 import Axios from 'axios';
 import Header from './header';
 import AdminSideBar from './AdminSidebar';
@@ -16,7 +16,7 @@ function AddApp() {
     "Productivity",
     // Add more categories here
   ]);
-
+  setAppCategories('')
   const [subCategories, setSubCategories] = useState({
     "Communication": ["Messaging", "Email", "Video Calls", "Voice Calls"],
     "Social Media": ["Networking", "Photo Sharing", "Video Sharing", "Microblogging"],
@@ -24,7 +24,7 @@ function AddApp() {
     "Productivity": ["Task Management", "Note Taking", "Calendar", "Document Editing"],
     // Define subcategories for other categories
   });
-
+  setSubCategories('')
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
 
@@ -33,13 +33,7 @@ function AddApp() {
     setSelectedCategory(category);
     setSelectedSubCategory("");
   };
-  const sidebarStyle = {
-    backgroundColor: 'rgb(193, 197, 197)',
-    width: '20%',
-    padding: '10px',
-    paddingTop: '80px',
-    paddingLeft: '20px',
-  };
+ console.log(selectedSubCategory);
 
   const mainContentStyle = {
     backgroundColor: 'white',
