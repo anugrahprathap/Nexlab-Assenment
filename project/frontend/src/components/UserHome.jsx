@@ -49,7 +49,7 @@ function UserHome() {
       .catch((error) => {
         console.error('Error fetching apps:', error);
       });
-  }, []);
+  }, );
 
   return (
     <div className="" style={containerStyle}>

@@ -105,7 +105,7 @@ function AddApp() {
     if (appLink) {
       fetchAppIcon();
     }
-  }, [appLink]);
+  }, [appLink,fetchAppIcon]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

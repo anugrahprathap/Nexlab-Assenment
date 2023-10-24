@@ -60,7 +60,7 @@ function ViewTask() {
       .catch((error) => {
         console.error('Error fetching apps:', error);
       });
-  }, []);
+  }, );
 
   const hasCompletedTask = (appId) => {
     const headers = {
