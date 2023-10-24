@@ -7,6 +7,8 @@ import { useNavigate  } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [userRole, setUserRole] = useState(null);
@@ -19,7 +21,7 @@ function Login() {
   
       try {
         // Replace 'your_login_endpoint' with your actual login API endpoint
-        const response = await axios.post('http://127.0.0.1:8000/login/', {
+        const response = await axios.post(`${serverAddress}/login/`, {
           username: username,
           password: password,
         });

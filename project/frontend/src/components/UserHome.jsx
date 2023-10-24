@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faHome ,faRightToBracket, faDatabase} from '@fortawesome/free-solid-svg-icons';
-import Axios from 'axios';
-import jwtDecode from 'jwt-decode';
 
-import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons';
-import ViewTask from './ViewTask';
+import Axios from 'axios';
+
 import Header from './header';
 
 import SideBar from './SideBar';
 function UserHome() {
-  const [viewTaskVisible, setViewTaskVisible] = useState('');
 
 
-  const sidebarStyle = {
-    backgroundColor: '#dfe1e6',
-    width: '20%',
-    padding: '10px',
-    paddingTop: '80px',
-    paddingLeft: '20px',
-  };
+
 
   const mainContentStyle = {
     backgroundColor: 'white',
@@ -41,15 +30,9 @@ function UserHome() {
     width: '100vw',
   };
 
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
 
-  const iconStyle = {
-   
-      justifyContent: 'center', // Center horizontally
-      alignItems: 'center', // Center vertically
-      width: '20px',
-      height: '15px',
-      fontColor: '',
-    };
 
 
     
@@ -57,7 +40,7 @@ function UserHome() {
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://127.0.0.1:8000/get_all_apps/')
+    Axios.get(`${serverAddress}/get_all_apps/`)
       .then((response) => {
         setApps(response.data);
       })

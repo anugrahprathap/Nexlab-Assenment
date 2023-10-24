@@ -6,7 +6,8 @@ import Axios from 'axios';
 import Header from './header';
 import AdminSideBar from './AdminSidebar';
 function AddApp() {
-  
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
 
   const [appCategories, setAppCategories] = useState([
     "Communication",
@@ -123,7 +124,7 @@ function AddApp() {
         logo: appIcon,
       };
     try {
-      const apiUrl = 'http://127.0.0.1:8000/add_app/'; 
+      const apiUrl = `${serverAddress}/add_app/`; 
       const response = await Axios.post(apiUrl, formData);
   
       if (response.status === 201) {

@@ -7,10 +7,13 @@ import { useDropzone } from 'react-dropzone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
 import Header from './header';
-import { useAuth } from '../AuthContext';
+
 
 function TaskDetail() {
-    const navigate = useNavigate(); 
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
+
+  const navigate = useNavigate(); 
   const { taskId } = useParams();
   const [task, setTask] = useState({});
  
@@ -51,7 +54,7 @@ function TaskDetail() {
   };
 
   useEffect(() => {
-    Axios.get(`http://127.0.0.1:8000/get_app/${taskId}/`)
+    Axios.get(`${serverAddress}/get_app/${taskId}/`)
       .then((response) => {
         setTask(response.data);
       })
@@ -80,7 +83,7 @@ function TaskDetail() {
             Authorization: `Bearer ${localStorage.getItem('token')}`, // Replace with your authentication method
           };
       // Send a POST request to the server to handle the image and app ID
-      const response = await Axios.post('http://127.0.0.1:8000/upload_image/', formData,{ headers } );
+      const response = await Axios.post(`${serverAddress}/upload_image/`, formData,{ headers } );
 
       if (response.status === 201) {
         // Handle success, e.g., show a success message

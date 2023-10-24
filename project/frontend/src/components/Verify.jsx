@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage,faHome } from '@fortawesome/free-solid-svg-icons';
+
 import Axios from 'axios';
 import Header from './header';
 import AdminSideBar from './AdminSidebar';
@@ -10,13 +9,7 @@ import { useNavigate } from 'react-router-dom';
 function Verify() {
     
   const navigate = useNavigate()
-  const sidebarStyle = {
-    backgroundColor: 'rgb(193, 197, 197)',
-    width: '20%',
-    padding: '10px',
-    paddingTop: '80px',
-    paddingLeft: '20px',
-  };
+
 
   const mainContentStyle = {
     backgroundColor: 'white',
@@ -54,7 +47,8 @@ function Verify() {
 
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
-  
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
   const openImageViewer = (imageUrl) => {
     
     setSelectedImage(imageUrl);
@@ -79,7 +73,7 @@ function Verify() {
   
 
   const handleImageVerification = (imageId, img_status) => {
-    Axios.post(`http://127.0.0.1:8000/verify-image/${imageId}/${img_status}/`)
+    Axios.post(`${serverAddress}/verify-image/${imageId}/${img_status}/`)
       .then((response) => {
         console.log(response.data);
         alert("Verified Successfully")

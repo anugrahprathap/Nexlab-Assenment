@@ -3,20 +3,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+
 
 function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const config = require('./config.json');
+    const serverAddress = config.serverAddress;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     console.log(formData.get('username'))
     try {
-      const apiUrl = 'http://127.0.0.1:8000/register/'; // The URL to your Django registration endpoint
+      const apiUrl = `${serverAddress}/register/`; // The URL to your Django registration endpoint
       const response = await axios.post(apiUrl, {
         username: formData.get('username'),
         email: formData.get('email'),

@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage,faHome } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+
 
 function HomePage() {
 

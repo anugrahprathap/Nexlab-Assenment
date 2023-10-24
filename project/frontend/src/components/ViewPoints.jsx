@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 import Axios from 'axios';
 import Header from './header';
 import SideBar from './SideBar';
 
 function ViewPoints() {
   const [userPoints, setUserPoints] = useState(null);
-
+  const config = require('./config.json');
+  const serverAddress = config.serverAddress;
   useEffect(() => {
     // Make an API request to fetch user points
-    Axios.get('http://127.0.0.1:8000/get-user-points/',{headers: {
+    Axios.get(`${serverAddress}/get-user-points/`,{headers: {
         'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${localStorage.getItem('token')}`, 
       },})

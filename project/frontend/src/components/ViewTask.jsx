@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faHome ,faRightToBracket, faDatabase} from '@fortawesome/free-solid-svg-icons';
+
 import Header from './header';
 import SideBar from './SideBar';
 import { useNavigate } from "react-router-dom";
@@ -51,21 +49,15 @@ function ViewTask() {
       };
     
     
-      const iconStyle = {
-       
-          justifyContent: 'center', // Center horizontally
-          alignItems: 'center', // Center vertically
-          width: '20px',
-          height: '15px',
-          fontColor: '',
-        };
     
-  
+    
+      const config = require('./config.json');
+      const serverAddress = config.serverAddress;
 
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://127.0.0.1:8000/get_all_apps/',{headers: {
+    Axios.get(`${serverAddress}/get_all_apps/`,{headers: {
       'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`, 
     },})
@@ -84,7 +76,7 @@ function ViewTask() {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Replace with your authentication method
       };
     // Make an API request to check if data exists in the UploadImage database for the user and app
-    Axios.get(`http://127.0.0.1:8000/check_task_completion/${appId}/`,{headers})
+    Axios.get(`${serverAddress}/check_task_completion/${appId}/`,{headers})
       .then((response) => {
         console.log(response.data)
         if (response.data.completed) {

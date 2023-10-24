@@ -3,14 +3,8 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus,faHome ,faRightToBracket, faDatabase} from '@fortawesome/free-solid-svg-icons';
-import Axios from 'axios';
-
-
-import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons';
-import ViewTask from './ViewTask';
-import { Button } from 'bootstrap';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; 
+
 function AdminSideBar(){
  
     const sidebarStyle = {
@@ -19,25 +13,6 @@ function AdminSideBar(){
         padding: '10px',
         paddingTop: '80px',
         paddingLeft: '20px',
-      };
-    
-      const mainContentStyle = {
-        backgroundColor: 'white',
-        width: '80%',
-        padding: '20px',
-        marginTop: '80px',
-      };
-    
-      const containerStyle = {
-        height: '100%', // Set the container height to 100%
-        width: '100%',
-      };
-    
-      const flexContainerStyle = {
-        display: 'flex',
-        backgroundColor: '#dfe1e6',
-        height: '100vh', // Set the flex container height to 100%
-        width: '100vw',
       };
     
     
@@ -55,7 +30,7 @@ function AdminSideBar(){
       
       
     
-      const [apps, setApps] = useState([]);
+
     
      
     return (

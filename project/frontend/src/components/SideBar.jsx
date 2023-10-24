@@ -3,14 +3,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser,faHome ,faRightToBracket, faDatabase} from '@fortawesome/free-solid-svg-icons';
-import Axios from 'axios';
 
 
 import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons';
-import ViewTask from './ViewTask';
-import { Button } from 'bootstrap';
+
 import { Link } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; 
 function SideBar(){
  
     const sidebarStyle = {
